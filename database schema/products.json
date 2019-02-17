@@ -1,0 +1,15 @@
+{"_id":{"$oid":"5c5f004bb89df432e410b7dc"},"product_name":"Milk","product_id":1,"product_price":5,"category_id":1,"product_image":"http://localhost:3000/uploads/milk-1549729867101.jpg","__v":0}
+{"_id":{"$oid":"5c5f107cb041f43bf88fe9b0"},"product_name":"Ben \u0026 Jerry","product_id":2,"product_price":8,"category_id":1,"product_image":"http://localhost:3000/uploads/ben-\u0026-jerry-1549734012874.jpg","__v":0}
+{"_id":{"$oid":"5c5f11b1b041f43bf88fe9b1"},"product_name":"Daim","product_id":3,"product_price":2,"category_id":1,"product_image":"http://localhost:3000/uploads/daim-1549734321012.jpg","__v":0}
+{"_id":{"$oid":"5c5f1422b041f43bf88fe9b2"},"product_name":"Kitkat","product_id":4,"product_price":3,"category_id":1,"product_image":"http://localhost:3000/uploads/kitkat-1549734946497.jpg","__v":0}
+{"_id":{"$oid":"5c5f1fdd4ba48a320c4c33ab"},"product_name":"Barkan Wine","product_id":5,"product_price":12,"category_id":4,"product_image":"http://localhost:3000/uploads/barkan-wine-1549737949280.jpg","__v":0}
+{"_id":{"$oid":"5c69255cbc97f84d0853daa6"},"product_name":"Coca Cola 1.5L","product_id":6,"product_price":3,"category_id":4,"product_image":"http://localhost:3000/uploads/coca-cola-1.5l-1550394716841.jpg","__v":0}
+{"_id":{"$oid":"5c692580bc97f84d0853daa7"},"product_name":"Coca Cola Zero 1.5L","product_id":7,"product_price":3,"category_id":4,"product_image":"http://localhost:3000/uploads/coca-cola-zero-1.5l-1550394752416.jpg","__v":0}
+{"_id":{"$oid":"5c6952fba74f7a3d940fb7da"},"product_name":"Apple","product_id":8,"product_price":1,"category_id":2,"product_image":"http://localhost:3000/uploads/apple-1550406395416.jpg","__v":0}
+{"_id":{"$oid":"5c695330a74f7a3d940fb7db"},"product_name":"Pineapple","product_id":9,"product_price":2,"category_id":2,"product_image":"http://localhost:3000/uploads/pineapple-1550406448744.png","__v":0}
+{"_id":{"$oid":"5c695352a74f7a3d940fb7dc"},"product_name":"Carrot","product_id":10,"product_price":1,"category_id":2,"product_image":"http://localhost:3000/uploads/carrot-1550406482770.jpg","__v":0}
+{"_id":{"$oid":"5c69538ba74f7a3d940fb7dd"},"product_name":"Italian Sausage","product_id":11,"product_price":10,"category_id":3,"product_image":"http://localhost:3000/uploads/italian-sausage-1550406539619.jpg","__v":0}
+{"_id":{"$oid":"5c6953bca74f7a3d940fb7de"},"product_name":"Butter","product_id":12,"product_price":8,"category_id":1,"product_image":"http://localhost:3000/uploads/butter-1550406588779.jpg","__v":0}
+{"_id":{"$oid":"5c6953f6a74f7a3d940fb7df"},"product_name":"Beef Steak","product_id":13,"product_price":15,"category_id":3,"product_image":"http://localhost:3000/uploads/beef-steak-1550406646069.jpg","__v":0}
+{"_id":{"$oid":"5c69541fa74f7a3d940fb7e0"},"product_name":"Chicken Nuggets","product_id":14,"product_price":13,"category_id":3,"product_image":"http://localhost:3000/uploads/chicken-nuggets-1550406687384.jpg","__v":0}
+{"_id":{"$oid":"5c695440a74f7a3d940fb7e1"},"product_name":"Hugo Wine","product_id":15,"product_price":15,"category_id":4,"product_image":"http://localhost:3000/uploads/hugo-wine-1550406720569.jpg","__v":0}

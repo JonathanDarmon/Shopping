@@ -1,0 +1,97 @@
+<mat-toolbar class="searchBar">
+  <mat-form-field>
+    <input matInput type="search" [(ngModel)]="searchText" class="searchInput"><button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+
+  </mat-form-field>
+
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="getAll()">All</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(1)">Milk & Eggs</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(2)">Vegetables & Fruits</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(3)">Meat & Fish</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(4)">Wine & Drinks</button>
+
+</mat-toolbar>
+<!-- Container -->
+<mat-sidenav-container class="shopping-container">
+  <!-- Side Content -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" disableClose>
+    <h3>Create Product</h3>
+    <mat-divider></mat-divider>
+    <div>
+      <form (submit)="onCreate(newProductForm)" #newProductForm="ngForm" enctype="multipart/form-data">
+        <p>
+          <mat-form-field>
+            <mat-label>Product Name</mat-label>
+            <input type="text" name="productName" ngModel matInput #productNameInput="ngModel">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Product Id</mat-label>
+            <input type="text" name="productId" ngModel matInput #productIdInput="ngModel">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-label>Product Price</mat-label>
+            <input type="text" name="productPrice" ngModel matInput #productPriceInput="ngModel">
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field>
+            <mat-select placeholder="Category" name="productCategory" ngModel #categoryInput="ngModel">
+              <mat-option>None</mat-option>
+              <mat-option value="1">Milk & Eggs</mat-option>
+              <mat-option value="2">Vegetables & Fruits</mat-option>
+              <mat-option value="3">Meat & Fish</mat-option>
+              <mat-option value="4">Wine & Drinks</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </p>
+        <div>
+          <input type="file" name="product_image" (change)="onImagePicked($event)">
+        </div>
+        <br>
+        <button mat-button type="submit" value="Submit">Create Product</button>
+      </form>
+    </div>
+
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <!-- Container Content -->
+    <span>
+      <button mat-button (click)="sidenav.toggle()" *ngIf="!opened">Create Product
+        <mat-icon>add_circle</mat-icon>
+      </button>
+      <button mat-button (click)="sidenav.toggle()" *ngIf="opened">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </span>
+    <mat-grid-list cols="7" rowHeight="15rem">
+      <mat-grid-tile *ngFor="let product of products | filter : searchText ">
+        <mat-card data-id="{{product.product_id}}">
+          <img mat-card-sm-image class="product-image" [src]="product.product_image" [alt]="product.product_name">
+          <mat-card-content>
+            <mat-card-subtitle>
+              {{product.product_name}}
+            </mat-card-subtitle>
+            <p>
+              $ {{product.product_price}} per unit
+            </p>
+            <button mat-button>
+              <mat-icon>edit</mat-icon>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

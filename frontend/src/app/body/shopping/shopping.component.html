@@ -1,0 +1,55 @@
+<mat-toolbar class="searchBar">
+  <mat-form-field>
+    <input matInput type="search" [(ngModel)]="searchText" class="searchInput"><button mat-icon-button>
+      <mat-icon>search</mat-icon>
+    </button>
+
+  </mat-form-field>
+
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="getAll()">All</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(1)">Milk & Eggs</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(2)">Vegetables & Fruits</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(3)">Meat & Fish</button>
+  <span class="space"></span>
+  <button mat-stroked-button type="button" (click)="category(4)">Wine & Drinks</button>
+
+
+</mat-toolbar>
+<!-- Container -->
+<mat-sidenav-container class="shopping-container">
+  <!-- Side Content -->
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened" disableClose>
+    <app-cart></app-cart>
+  </mat-sidenav>
+  <!-- Container Content -->
+  <mat-sidenav-content>
+    <span class="sidenavButton">
+      <button mat-mini-fab (click)="sidenav.toggle()" style="background-color:darkgray;">
+        <mat-icon *ngIf="!opened">shopping_cart</mat-icon>
+        <mat-icon *ngIf="opened">clear</mat-icon>
+      </button>
+    </span>
+    <mat-grid-list cols="7" rowHeight="15rem">
+      <mat-grid-tile *ngFor="let product of products | filter : searchText ">
+        <mat-card data-id="{{product.product_id}}">
+          <img mat-card-sm-image class="product-image" [src]="product.product_image" [alt]="product.product_name">
+          <mat-card-content>
+            <mat-card-subtitle>
+              {{product.product_name }}
+            </mat-card-subtitle>
+            <p>
+              $ {{product.product_price}} per unit
+            </p>
+            <button mat-button type="button">
+              <mat-icon (click)="onAdd(product)">add_shopping_cart</mat-icon>
+            </button>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,40 @@
+<mat-toolbar role="heading">
+  <span routerLink="" class="logo">
+    <img src="http://localhost:3000/uploads/logo4.png" alt="LOGO" width="40px" height="50%">
+  </span>
+  &nbsp;&nbsp;&nbsp;
+  <h1>Shopping Online</h1>
+  <span class="space"></span>
+
+  <span *ngIf="userIsAuthenticated" [innerHTML]="currentName" class="currentName"></span>
+
+  <mat-icon *ngIf="userIsAuthenticated">account_circle</mat-icon>
+
+  <span *ngIf="!userIsAuthenticated">Hello Guest</span>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="userIsAuthenticated">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" >
+    <button mat-menu-item routerLink="/">
+      <mat-icon>home</mat-icon>
+      <span>Home</span>
+    </button>
+
+    <button mat-menu-item routerLink="/shopping">
+      <mat-icon>store</mat-icon>
+      <span>Shop</span>
+    </button>
+
+    <button *ngIf="userIsAuthenticated && adminAuth" mat-menu-item routerLink="/administrator">
+      <mat-icon>build</mat-icon>
+      <span>Manage</span>
+    </button>
+
+    <button mat-menu-item (click)="onLogout()">
+      <mat-icon>meeting_room</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

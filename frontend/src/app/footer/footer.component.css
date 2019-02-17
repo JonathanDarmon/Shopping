@@ -1,0 +1,9 @@
+.footer {
+  background-color: #999999;
+  max-height: 40px;
+  font-size: 60%;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

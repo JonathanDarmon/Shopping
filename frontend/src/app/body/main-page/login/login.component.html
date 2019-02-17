@@ -1,0 +1,25 @@
+<mat-grid-tile-header>
+  <p>Registered?</p>
+</mat-grid-tile-header>
+<form (submit)="onLogin(loginForm)" #loginForm="ngForm">
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>User Name</mat-label>
+      <input type="email" name="email" ngModel matInput #emailInput="ngModel" required email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid username</mat-error>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field appearance="standard">
+      <mat-label>Password</mat-label>
+      <input type="password" name="password" ngModel matInput #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+    </mat-form-field>
+  </p>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <mat-grid-tile-footer>
+    <button mat-button type="submit" value="Submit" *ngIf="!isLoading">Login</button>
+    <span class="spacer"></span>
+    <button mat-button routerLink="/register">Sign up</button>
+  </mat-grid-tile-footer>
+</form>

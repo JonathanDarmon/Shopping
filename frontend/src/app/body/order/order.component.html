@@ -1,0 +1,85 @@
+<mat-grid-list cols="2" rowHeight="475px">
+  <!-- My Cart -->
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <h3>My Cart:</h3>
+      <span class="space"></span><span class="space"></span><span class="space"></span><span class="space"></span>
+      <button mat-button routerLink="/shopping"><mat-icon>keyboard_return</mat-icon>Back to shop</button>
+      <span class="space"></span>
+    </mat-grid-tile-header>
+
+    <mat-list>
+      <mat-list-item *ngFor="let item of cartItem">
+        <h4 mat-line>{{item.product_name}}</h4>
+        <img src="{{item.product_image}}" alt="{{item.product_name}}" style="max-width:80px;max-height:80px;">
+        <p mat-line>$ {{item.product_price}}</p>
+        <span mat-line>Quantity: <input type="number" value="{{item.product_quantity}}" disabled></span>
+      </mat-list-item>
+    </mat-list>
+    <mat-grid-tile-footer>
+      <span>Total:</span>
+      <p>$ {{totalPrice}}</p>
+    </mat-grid-tile-footer>
+
+  </mat-grid-tile>
+
+  <!-- Order Form -->
+  <mat-grid-tile>
+    <mat-grid-tile-header>
+      <h1>Order</h1>
+    </mat-grid-tile-header>
+        <h2 class="shippingTitle">Shipping Details</h2>
+    <mat-divider></mat-divider>
+
+    <form #orderForm="ngForm">
+      <p>
+        <mat-form-field>
+          <mat-select placeholder="City" name="city" ngModel #cityInput="ngModel" required>
+            <mat-option value="Tel Aviv">Tel Aviv</mat-option>
+            <mat-option value="Haifa">Haifa</mat-option>
+            <mat-option value="Jerusalem">Jerusalem</mat-option>
+            <mat-option value="Beersheba">Beersheba</mat-option>
+            <mat-option value="Bat Yam">Bat Yam</mat-option>
+            <mat-option value="Eilat">Eilat</mat-option>
+            <mat-option value="Rishon LeZion">Rishon LeZion</mat-option>
+            <mat-option value="Rehovot">Rehovot</mat-option>
+            <mat-option value="Tiberias">Tiberias</mat-option>
+            <mat-option value="Ashdod">Ashdod</mat-option>
+          </mat-select>
+          <mat-error *ngIf="cityInput.invalid">Please choose a city</mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label>Street</mat-label>
+          <input type="text" name="street" ngModel matInput #streetInput="ngModel" required>
+          <mat-error *ngIf="streetInput.invalid">Please enter a street</mat-error>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <input matInput name="shippingDate" [matDatepicker]="picker" ngModel #dateInput placeholder="Shipping Date" required>
+          <mat-error *ngIf="dateInput.invalid">Please choose a date</mat-error>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field>
+          <mat-label>Credit Card</mat-label>
+          <input type="text" name="creditCard" ngModel matInput #cardInput="ngModel" required>
+          <mat-error *ngIf="cardInput.invalid">Please enter a card number</mat-error>
+        </mat-form-field>
+      </p>
+    </form>
+
+    <mat-grid-tile-footer>
+      <span class="space"></span>
+      <button mat-raised-button (click)="onOrder(orderForm)">Order</button>
+      <span class="space"></span>
+    </mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>

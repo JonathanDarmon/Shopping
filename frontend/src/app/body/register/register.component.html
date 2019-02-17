@@ -1,0 +1,79 @@
+<form (submit)="onSignup(signupForm)" #signupForm="ngForm" *ngIf="!isLoading">
+<mat-vertical-stepper linear #stepper>
+  <mat-step>
+      <ng-template matStepLabel>Step 1</ng-template>
+      <mat-form-field>
+        <mat-label>Identification Number</mat-label>
+        <input type="text" name="id" ngModel matInput #idInput="ngModel" required>
+        <mat-error *ngIf="idInput.invalid">Please enter your identification</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>User Name</mat-label>
+        <input type="email" name="email" ngModel matInput #emailInput="ngModel" required email>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type="password" name="password" ngModel matInput #passwordInput="ngModel" required>
+          <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field>
+          <mat-label>Confirm Password</mat-label>
+          <input type="password" name="confirm_password" ngModel matInput #confPassword="ngModel" required>
+          <mat-error *ngIf="passwordInput.value !== confPassword.value">Password doesn't match</mat-error>
+      </mat-form-field> -->
+
+      <div>
+        <button mat-raised-button color="primary" matStepperNext type="button">Next</button>
+      </div>
+
+  </mat-step>
+  <mat-step>
+
+      <ng-template matStepLabel>Step 2</ng-template>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input type="text" name="name" ngModel matInput #nameInput="ngModel" required>
+        <mat-error *ngIf="nameInput.invalid">Please enter a valid name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Surname</mat-label>
+        <input type="text" name="lastName" ngModel matInput #lastNameInput="ngModel" required>
+        <mat-error *ngIf="nameInput.invalid">Please enter a valid surname</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="City" name="city" ngModel #cityInput="ngModel" required>
+          <mat-option value="Tel Aviv">Tel Aviv</mat-option>
+          <mat-option value="Haifa">Haifa</mat-option>
+          <mat-option value="Jerusalem">Jerusalem</mat-option>
+          <mat-option value="Beersheba">Beersheba</mat-option>
+          <mat-option value="Bat Yam">Bat Yam</mat-option>
+          <mat-option value="Eilat">Eilat</mat-option>
+          <mat-option value="Rishon LeZion">Rishon LeZion</mat-option>
+          <mat-option value="Rehovot">Rehovot</mat-option>
+          <mat-option value="Tiberias">Tiberias</mat-option>
+          <mat-option value="Ashdod">Ashdod</mat-option>
+        </mat-select>
+        <mat-error *ngIf="cityInput.invalid">Please choose a city</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+          <mat-label>Street</mat-label>
+        <input type="text" name="street" ngModel matInput #streetInput="ngModel" required>
+        <mat-error *ngIf="streetInput.invalid">Please enter a valid street</mat-error>
+      </mat-form-field>
+
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-raised-button color="primary" type="submit" *ngIf="!isLoading">Submit</button>
+      </div>
+
+  </mat-step>
+</mat-vertical-stepper>
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+</form>

@@ -1,0 +1,25 @@
+<h3 style="display:inline;">My Cart:</h3>
+<button mat-icon-button (click)="clearCart()" style="left: 230px;">
+  <mat-icon>remove_shopping_cart</mat-icon>
+</button>
+<mat-divider></mat-divider>
+
+      <mat-list>
+        <mat-list-item *ngFor="let item of cartItem">
+          <h4 mat-line>{{item.product_name}}</h4>
+          <img src="{{item.product_image}}" alt="{{item.product_name}}" style="max-width:80px;max-height:80px;">
+          <p mat-line>$ {{item.total}}</p>
+          <span class="space"></span>
+          <button mat-icon-button><mat-icon (click)="removeItem(item)">clear</mat-icon></button>
+          <span mat-line>Quantity: <input type="number" value="{{item.product_quantity}}" disabled></span>
+        </mat-list-item>
+      </mat-list>
+
+    <mat-toolbar class="orderButton">
+      <span>Total:</span>
+      <span class="space"></span>
+      <p *ngIf="totalPrice">$ {{totalPrice}}</p>
+      <span class="space"></span>
+      <button mat-button type="button" (click)="onOrder()">Order</button>
+    </mat-toolbar>
+

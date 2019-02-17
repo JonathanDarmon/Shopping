@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5c4f651ba0f0e64bf715554f"},"id":"1","categoryName":"Milk \u0026 Eggs"}
+{"_id":{"$oid":"5c4f6540a0f0e64bf7155560"},"id":"2","categoryName":"Vegetables \u0026 Fruits"}
+{"_id":{"$oid":"5c4f6552a0f0e64bf7155566"},"id":"3","categoryName":"Meat \u0026 Fish"}
+{"_id":{"$oid":"5c4f656aa0f0e64bf7155579"},"id":"4","categoryName":"Wine \u0026 Drinks"}

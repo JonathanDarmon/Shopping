@@ -1,0 +1,97 @@
+<mat-grid-list cols="3" gutterSize="0.2%" rowHeight="475px">
+  <!-- Panel A -->
+
+  <mat-grid-tile [style.background]="color">
+    <app-login *ngIf="!userIsAuthenticated"></app-login>
+    <mat-card *ngIf="userIsAuthenticated">
+      <mat-card-content *ngIf="noOrder && !activeCart">
+        <p>
+          Welcome back {{fullName}}!
+          <br>
+          Make a new order
+        </p>
+      </mat-card-content>
+      <mat-card-content *ngIf="!noOrder && !activeCart">
+        <p>Hey {{fullName}}, <br>
+          Welcome to your first purchase
+        </p>
+      </mat-card-content>
+      <mat-card-content *ngIf="noOrder && activeCart">
+        <p>Hey {{fullName}}, <br>
+          Continue shopping
+
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-flat-button color="primary" routerLink="/shopping" *ngIf="!activeCart">Start Shopping</button>
+        <button mat-flat-button color="primary" routerLink="/shopping" *ngIf="activeCart">Resume Shopping</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+
+
+  <!-- Panel B -->
+
+  <mat-grid-tile [style.background]="color">
+    <mat-card [style.background]="color">
+      <mat-card-header>
+        <h4>Welcome to Shopping Online</h4>
+      </mat-card-header>
+      <div class="image">
+        <img mat-card-image src="https://www.therobinreport.com/wp-content/uploads/2015/09/RR_06-12_local_grocery-02-600x449.png"
+          alt="orders" height="200px" width="20%">
+      </div>
+      <mat-card-content>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua.
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  </mat-grid-tile>
+
+  <!-- Panel C -->
+  <mat-grid-tile [style.background]="color">
+    <mat-card class="notification" *ngIf="userIsAuthenticated && noOrder" >
+        <mat-card-header>
+          <mat-icon>notifications</mat-icon>
+          <mat-card-title>Notification</mat-card-title>
+
+        </mat-card-header>
+
+        <mat-card-content>
+          <p *ngIf="noOrder">
+            Your last purchase was on {{orderDate}}
+          </p>
+        </mat-card-content>
+      </mat-card>
+
+    <mat-list>
+      <mat-list-item>
+        <p>
+          Available products in <br>
+          our store - {{products.length}}
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <br>
+      <mat-list-item>
+        <p>
+          Number of orders submitted <br>
+          in our store - {{countOrders}}
+        </p>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+
+    </mat-list>
+  </mat-grid-tile>
+
+
+</mat-grid-list>

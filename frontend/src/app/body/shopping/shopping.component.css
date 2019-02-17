@@ -1,0 +1,61 @@
+
+mat-sidenav-content {
+  overflow-y: auto;
+  max-height: 440px;
+}
+
+
+mat-sidenav {
+  width: 350px;
+  max-height: 440px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+mat-list {
+  overflow-y: auto;
+}
+
+mat-card {
+  max-width: 95px;
+  max-height: 182px;
+}
+
+.product-image {
+  width: 100%;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+.sidenavButton {
+  display: inline;
+  position: relative;
+  left: -1px;
+}
+
+.searchBar {
+  height: 7%;
+  background-color: silver;
+}
+
+.space {
+  flex: 1 1 auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
