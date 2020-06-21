@@ -1,5 +1,6 @@
 # Shopping
 
-* Online shop for groceries, included feature for administrator to upload new products to the list.
+* Online shop for groceries, included administrator's managment to upload new products to the stock.
 
-*Two different apps running on seperated ports. Based on server and client programs - Node.js(express), Angular (TypeScript), MongoDB(Mongoose).
+*Client - Angular web service to display UI
+*Server - Node.js(express) web server, deplopying API's for the client and managing database(Mongodb)
